@@ -1,0 +1,149 @@
+[33mcommit 459373d005fa435961e213bb13ccf5306be0b695[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m
+Merge: 77ef061 98472dd
+Author: ZakariaAyad1 <zakariaayad27@gmail.com>
+Date:   Wed Apr 2 16:40:16 2025 +0000
+
+    Merge branch 'ZAKARIA'
+
+ BD/ConsommationMensuelleModel.php                  |   45 [32m+[m
+ BD/DBConnection.php                                |  147 [32m++[m
+ BD/FactureModel.php                                |   70 [32m+[m
+ BD/FournisseurModel.php                            |   21 [32m+[m
+ .../js/js.js => IHM/fournisseur/ajouter-client.php |    0
+ IHM/fournisseur/factures-fournisseur.php           |   78 [32m+[m
+ IHM/fournisseur/gestion-consommations.php          |  152 [32m++[m
+ assets/uploads/up => IHM/fournisseur/login.php     |    0
+ IHM/includes/footer-fournisseur.php                |  103 [32m++[m
+ IHM/includes/header-fournisseur.php                |  124 [32m++[m
+ .../Consommation_fournisseur_controller.php        |   16 [32m+[m
+ .../Update-Facture-Status-Controller.php           |   26 [32m+[m
+ Traitement/fournisseurs/facture.php                |   22 [32m+[m
+ .../facture_fournisseur_controller.php             |   36 [32m+[m
+ Traitement/fournisseurs/generate_invoice.php       |  144 [32m++[m
+ Traitement/fournisseurs/get_consommation.php       |   19 [32m+[m
+ Traitement/fournisseurs/update_consommation.php    |   34 [32m+[m
+ assets/css/fournisseur/factures-fournisseur.css    |    6 [32m+[m
+ assets/css/test.css                                |  203 [32m++[m
+ assets/js/fournisseur/consommations.js             |  138 [32m++[m
+ assets/js/fournisseur/factures-fournisseur.js      |   50 [32m+[m
+ ...communicant-serie-7e-008903700-product_maxi.jpg |  Bin [31m0[m -> [32m27217[m bytes
+ ...communicant-serie-7e-008903700-product_maxi.jpg |  Bin [31m0[m -> [32m27217[m bytes
+ factures/facture_12.pdf                            |  Bin [31m0[m -> [32m30326[m bytes
+ gestion_factures.sql                               |    3 [32m+[m
+ index.php                                          |    0
+ libs/fpdf186/FAQ.htm                               |  273 [32m+++[m
+ libs/fpdf186/changelog.htm                         |  188 [32m++[m
+ libs/fpdf186/doc/__construct.htm                   |   68 [32m+[m
+ libs/fpdf186/doc/acceptpagebreak.htm               |   64 [32m+[m
+ libs/fpdf186/doc/addfont.htm                       |   68 [32m+[m
+ libs/fpdf186/doc/addlink.htm                       |   26 [32m+[m
+ libs/fpdf186/doc/addpage.htm                       |   62 [32m+[m
+ libs/fpdf186/doc/aliasnbpages.htm                  |   45 [32m+[m
+ libs/fpdf186/doc/cell.htm                          |  107 [32m++[m
+ libs/fpdf186/doc/close.htm                         |   22 [32m+[m
+ libs/fpdf186/doc/error.htm                         |   27 [32m+[m
+ libs/fpdf186/doc/footer.htm                        |   36 [32m+[m
+ libs/fpdf186/doc/getpageheight.htm                 |   18 [32m+[m
+ libs/fpdf186/doc/getpagewidth.htm                  |   18 [32m+[m
+ libs/fpdf186/doc/getstringwidth.htm                |   23 [32m+[m
+ libs/fpdf186/doc/getx.htm                          |   20 [32m+[m
+ libs/fpdf186/doc/gety.htm                          |   20 [32m+[m
+ libs/fpdf186/doc/header.htm                        |   38 [32m+[m
+ libs/fpdf186/doc/image.htm                         |  101 [32m+[m
+ libs/fpdf186/doc/index.htm                         |   59 [32m+[m
+ libs/fpdf186/doc/line.htm                          |   38 [32m+[m
+ libs/fpdf186/doc/link.htm                          |   46 [32m+[m
+ libs/fpdf186/doc/ln.htm                            |   28 [32m+[m
+ libs/fpdf186/doc/multicell.htm                     |   79 [32m+[m
+ libs/fpdf186/doc/output.htm                        |   56 [32m+[m
+ libs/fpdf186/doc/pageno.htm                        |   18 [32m+[m
+ libs/fpdf186/doc/rect.htm                          |   49 [32m+[m
+ libs/fpdf186/doc/setauthor.htm                     |   33 [32m+[m
+ libs/fpdf186/doc/setautopagebreak.htm              |   33 [32m+[m
+ libs/fpdf186/doc/setcompression.htm                |   31 [32m+[m
+ libs/fpdf186/doc/setcreator.htm                    |   33 [32m+[m
+ libs/fpdf186/doc/setdisplaymode.htm                |   46 [32m+[m
+ libs/fpdf186/doc/setdrawcolor.htm                  |   42 [32m+[m
+ libs/fpdf186/doc/setfillcolor.htm                  |   41 [32m+[m
+ libs/fpdf186/doc/setfont.htm                       |   82 [32m+[m
+ libs/fpdf186/doc/setfontsize.htm                   |   25 [32m+[m
+ libs/fpdf186/doc/setkeywords.htm                   |   33 [32m+[m
+ libs/fpdf186/doc/setleftmargin.htm                 |   30 [32m+[m
+ libs/fpdf186/doc/setlinewidth.htm                  |   30 [32m+[m
+ libs/fpdf186/doc/setlink.htm                       |   34 [32m+[m
+ libs/fpdf186/doc/setmargins.htm                    |   37 [32m+[m
+ libs/fpdf186/doc/setrightmargin.htm                |   28 [32m+[m
+ libs/fpdf186/doc/setsubject.htm                    |   33 [32m+[m
+ libs/fpdf186/doc/settextcolor.htm                  |   40 [32m+[m
+ libs/fpdf186/doc/settitle.htm                      |   33 [32m+[m
+ libs/fpdf186/doc/settopmargin.htm                  |   28 [32m+[m
+ libs/fpdf186/doc/setx.htm                          |   29 [32m+[m
+ libs/fpdf186/doc/setxy.htm                         |   31 [32m+[m
+ libs/fpdf186/doc/sety.htm                          |   33 [32m+[m
+ libs/fpdf186/doc/text.htm                          |   41 [32m+[m
+ libs/fpdf186/doc/write.htm                         |   52 [32m+[m
+ libs/fpdf186/font/courier.php                      |   10 [32m+[m
+ libs/fpdf186/font/courierb.php                     |   10 [32m+[m
+ libs/fpdf186/font/courierbi.php                    |   10 [32m+[m
+ libs/fpdf186/font/courieri.php                     |   10 [32m+[m
+ libs/fpdf186/font/helvetica.php                    |   21 [32m+[m
+ libs/fpdf186/font/helveticab.php                   |   21 [32m+[m
+ libs/fpdf186/font/helveticabi.php                  |   21 [32m+[m
+ libs/fpdf186/font/helveticai.php                   |   21 [32m+[m
+ libs/fpdf186/font/symbol.php                       |   20 [32m+[m
+ libs/fpdf186/font/times.php                        |   21 [32m+[m
+ libs/fpdf186/font/timesb.php                       |   21 [32m+[m
+ libs/fpdf186/font/timesbi.php                      |   21 [32m+[m
+ libs/fpdf186/font/timesi.php                       |   21 [32m+[m
+ libs/fpdf186/font/zapfdingbats.php                 |   20 [32m+[m
+ libs/fpdf186/fpdf.css                              |   21 [32m+[m
+ libs/fpdf186/fpdf.php                              | 1936 [32m++++++++++++++++++++[m
+ libs/fpdf186/install.txt                           |   15 [32m+[m
+ libs/fpdf186/license.txt                           |    6 [32m+[m
+ libs/fpdf186/makefont/cp1250.map                   |  251 [32m+++[m
+ libs/fpdf186/makefont/cp1251.map                   |  255 [32m+++[m
+ libs/fpdf186/makefont/cp1252.map                   |  251 [32m+++[m
+ libs/fpdf186/makefont/cp1253.map                   |  239 [32m+++[m
+ libs/fpdf186/makefont/cp1254.map                   |  249 [32m+++[m
+ libs/fpdf186/makefont/cp1255.map                   |  233 [32m+++[m
+ libs/fpdf186/makefont/cp1257.map                   |  244 [32m+++[m
+ libs/fpdf186/makefont/cp1258.map                   |  247 [32m+++[m
+ libs/fpdf186/makefont/cp874.map                    |  225 [32m+++[m
+ libs/fpdf186/makefont/iso-8859-1.map               |  256 [32m+++[m
+ libs/fpdf186/makefont/iso-8859-11.map              |  248 [32m+++[m
+ libs/fpdf186/makefont/iso-8859-15.map              |  256 [32m+++[m
+ libs/fpdf186/makefont/iso-8859-16.map              |  256 [32m+++[m
+ libs/fpdf186/makefont/iso-8859-2.map               |  256 [32m+++[m
+ libs/fpdf186/makefont/iso-8859-4.map               |  256 [32m+++[m
+ libs/fpdf186/makefont/iso-8859-5.map               |  256 [32m+++[m
+ libs/fpdf186/makefont/iso-8859-7.map               |  250 [32m+++[m
+ libs/fpdf186/makefont/iso-8859-9.map               |  256 [32m+++[m
+ libs/fpdf186/makefont/koi8-r.map                   |  256 [32m+++[m
+ libs/fpdf186/makefont/koi8-u.map                   |  256 [32m+++[m
+ libs/fpdf186/makefont/makefont.php                 |  447 [32m+++++[m
+ libs/fpdf186/makefont/ttfparser.php                |  714 [32m++++++++[m
+ libs/fpdf186/tutorial/20k_c1.txt                   |   10 [32m+[m
+ libs/fpdf186/tutorial/20k_c2.txt                   |   23 [32m+[m
+ .../tutorial/CevicheOne-Regular-Licence.txt        |   94 [32m+[m
+ libs/fpdf186/tutorial/CevicheOne-Regular.php       |   25 [32m+[m
+ libs/fpdf186/tutorial/CevicheOne-Regular.ttf       |  Bin [31m0[m -> [32m35576[m bytes
+ libs/fpdf186/tutorial/CevicheOne-Regular.z         |  Bin [31m0[m -> [32m15498[m bytes
+ libs/fpdf186/tutorial/index.htm                    |   20 [32m+[m
+ libs/fpdf186/tutorial/logo.png                     |  Bin [31m0[m -> [32m2373[m bytes
+ libs/fpdf186/tutorial/makefont.php                 |    6 [32m+[m
+ libs/fpdf186/tutorial/pays.txt                     |   15 [32m+[m
+ libs/fpdf186/tutorial/tuto1.htm                    |   82 [32m+[m
+ libs/fpdf186/tutorial/tuto1.php                    |    9 [32m+[m
+ libs/fpdf186/tutorial/tuto2.htm                    |   82 [32m+[m
+ libs/fpdf186/tutorial/tuto2.php                    |   41 [32m+[m
+ libs/fpdf186/tutorial/tuto3.htm                    |  117 [32m++[m
+ libs/fpdf186/tutorial/tuto3.php                    |   81 [32m+[m
+ libs/fpdf186/tutorial/tuto4.htm                    |  132 [32m++[m
+ libs/fpdf186/tutorial/tuto4.php                    |  109 [32m++[m
+ libs/fpdf186/tutorial/tuto5.htm                    |  138 [32m++[m
+ libs/fpdf186/tutorial/tuto5.php                    |  102 [32m++[m
+ libs/fpdf186/tutorial/tuto6.htm                    |  158 [32m++[m
+ libs/fpdf186/tutorial/tuto6.php                    |  114 [32m++[m
+ libs/fpdf186/tutorial/tuto7.htm                    |  184 [32m++[m
+ libs/fpdf186/tutorial/tuto7.php                    |   10 [32m+[m
+ 141 files changed, 13847 insertions(+)
