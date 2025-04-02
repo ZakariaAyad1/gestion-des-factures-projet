@@ -1,0 +1,203 @@
+/* Style global */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+}
+
+/* Container principal */
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Menu horizontal */
+.horizontal-menu {
+    display: flex;
+    justify-content: center;
+    background: linear-gradient(45deg, #0066cc, #3399ff);
+    padding: 15px 0;
+    list-style: none;
+    margin: 0;
+}
+
+.horizontal-menu li {
+    margin: 0 20px;
+}
+
+.horizontal-menu a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.horizontal-menu a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+}
+
+/* Statistiques */
+.stats {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 0;
+}
+
+.stat {
+    background: linear-gradient(45deg, #0066cc, #3399ff);
+    color: white;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    width: 23%;
+}
+
+.stat p {
+    font-size: 18px;
+    margin: 0;
+}
+
+.stat span {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* Graphique */
+canvas {
+    margin-top: 20px;
+    width: 100%;
+    max-width: 600px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Header */
+header {
+    background-color: #0066cc;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    font-size: 24px;
+}
+
+/* Main section */
+main {
+    padding: 20px;
+}
+
+
+
+/*gestion client-fournisseur-partie admin*/
+ /* Style général */
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(90deg, #0052D4, #4364F7, #6FB1FC);
+    color: white;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+/* Conteneur principal */
+.container {
+    width: 80%;
+    margin: 20px auto;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    color: black;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Titre avec cadre bleu foncé */
+.title-box {
+    background: #003580; /* Bleu foncé */
+    color: white;
+    padding: 15px;
+    font-size: 24px;
+    font-weight: bold;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    display: inline-block;
+}
+
+/* Centrage du bouton dans son conteneur */
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+/* Bouton */
+.btn {
+    background: linear-gradient(45deg, #007BFF, #00C6FF);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+    text-align: center;
+}
+
+.btn:hover {
+    background: linear-gradient(45deg, #0056b3, #0096ff);
+    transform: scale(1.05);
+}
+
+/* Tableau */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+table th, table td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+table th {
+    background: #0052D4;
+    color: white;
+}
+
+/* Boutons Modifier & Supprimer */
+.editBtn, .deleteBtn {
+    border: none;
+    padding: 8px 12px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.editBtn {
+    background: #FFD700;
+    color: black;
+}
+
+.deleteBtn {
+    background: #FF4500;
+    color: white;
+}
+
+.editBtn:hover {
+    background: #E6B800;
+}
+
+.deleteBtn:hover {
+    background: #CC3700;
+}
+
+
+ 
