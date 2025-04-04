@@ -16,21 +16,24 @@ class DBConnection {
     private $host = 'localhost';
     private $dbname = 'gestion_factures';
     private $username = 'root';
-    private $password = ''; // Modifiez cette valeur selon votre configuration
+    private $password = 'chaymae2002'; // Modifiez cette valeur selon votre configuration
     private $charset = 'utf8mb4';
+    private $port = 3308; // Définir le port
 
     /**
      * Constructeur privé pour empêcher l'instanciation directe
      */
     private function __construct() {
         try {
-            $dsn = "mysql:host={$this->host};dbname={$this->dbname};charset={$this->charset}";
+            // Ajouter le port dans le DSN
+            $dsn = "mysql:host={$this->host};dbname={$this->dbname};charset={$this->charset};port={$this->port}";
             $options = [
                 PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
                 PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
                 PDO::ATTR_EMULATE_PREPARES => false,
             ];
 
+            // Connexion à la base de données
             $this->conn = new PDO($dsn, $this->username, $this->password, $options);
         } catch (PDOException $e) {
             // En production, il serait préférable de logger l'erreur plutôt que de l'afficher
@@ -145,3 +148,4 @@ class DBConnection {
      */
     public function __wakeup() {}
 }
+?>
