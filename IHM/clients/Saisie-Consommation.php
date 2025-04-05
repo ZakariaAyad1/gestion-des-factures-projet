@@ -1,24 +1,30 @@
 <?php
-
+// Démarrer la session (doit être la première chose à faire)
 session_start();
 
-$_SESSION['client_id'] = 1; 
-
+// Inclusion du contrôleur
 require_once '../../Traitement/Clients/Consommation-Controller.php';
 
+// Instanciation du contrôleur
 $consommationController = new ConsommationController();
 
+// Récupération de l'ID du client (à adapter selon votre système d'authentification)
+// Pour la démonstration, on utilise un ID fixe
 $client_id = isset($_SESSION['client_id']) ? $_SESSION['client_id'] : 1;
 
+// Génération d'un token CSRF
+// Utiliser directement la méthode de la classe ou créer un token manuellement
 if (!isset($_SESSION['csrf_token'])) {
     $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
 }
 $csrf_token = $_SESSION['csrf_token'];
 
+// Récupération de la dernière consommation
 $dernierReleve = $consommationController->getDerniereConsommation($client_id);
 $consommationPrecedente = $dernierReleve ? $dernierReleve['valeur'] : 0;
 $datePrecedente = $dernierReleve ? $dernierReleve['date_releve_formattee'] : date('d/m/Y', strtotime('-1 month'));
 
+// Traitement du formulaire
 $message = '';
 $alertClass = '';
 
@@ -132,6 +138,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <script>
     document.addEventListener('DOMContentLoaded', function() {
+        // Affichage de l'aperçu de l'image
         document.getElementById('photo_compteur').addEventListener('change', function() {
             const file = this.files[0];
             if (file) {
@@ -144,6 +151,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             }
         });
 
+        // Validation de la consommation
         document.getElementById('consommation').addEventListener('change', function() {
             const consommation = parseFloat(this.value);
             const consommationPrecedente = <?php echo $consommationPrecedente ?: 0; ?>;
@@ -169,6 +177,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             }
         });
 
+        // Affichage du message
         const messageElement = document.getElementById('message');
         if (messageElement.textContent.trim() !== '') {
             messageElement.style.display = 'block';
