@@ -1,6 +1,6 @@
 <?php
 // 1. Inclure et initialiser le contrôleur
-require_once '../../BD/DbConnection.php';
+require_once '../../BD/DBConnection.php';
 require_once '../../Traitement/clients/dashboard_controller.php';
 
 // 2. Initialiser la connexion et le contrôleur
