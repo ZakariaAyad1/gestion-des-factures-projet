@@ -4,7 +4,7 @@ class Reclamation {
     private $table = 'reclamations';
 
     // Propriétés de la réclamation
-    public $reclamation_id;
+    public $id;
     public $client_id;
     public $type;
     public $description;
@@ -57,7 +57,7 @@ class Reclamation {
         $query = "SELECT r.*, c.nom, c.prenom, c.adresse, c.email 
                   FROM reclamations r
                   JOIN clients c ON r.client_id = c.client_id
-                  WHERE r.reclamation_id = :id 
+                  WHERE r.id = :id 
                   LIMIT 1";
         
         $stmt = $this->conn->prepare($query);
@@ -69,7 +69,7 @@ class Reclamation {
 
     // Mettre à jour le statut et la réponse d'une réclamation
     public function updateReclamation($id, $statut, $reponse) {
-        $query = "UPDATE " . $this->table . " SET statut = :statut, reponse = :reponse, updated_at = NOW() WHERE reclamation_id = :id";
+        $query = "UPDATE " . $this->table . " SET statut = :statut, reponse = :reponse, updated_at = NOW() WHERE id = :id";
         $stmt = $this->conn->prepare($query);
         $stmt->bindParam(':statut', $statut);
         $stmt->bindParam(':reponse', $reponse);

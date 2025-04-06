@@ -64,8 +64,8 @@ $reclamations = $controller->afficherReclamations($statutFilter, $typeFilter);
                     <td><?= htmlspecialchars($reclamation['type']) ?></td>
                     <td><?= htmlspecialchars($reclamation['statut'] === 'Resolu' ? 'Résolue' : $reclamation['statut']) ?></td>
                     <td>
-                        <?php if (isset($reclamation['reclamation_id'])): ?>
-                            <a href="detailReclamation.php?id=<?= $reclamation['reclamation_id'] ?>">🔍 Voir / Traiter</a>
+                        <?php if (isset($reclamation['id'])): ?>
+                            <a href="detailReclamation.php?id=<?= $reclamation['id'] ?>">🔍 Voir / Traiter</a>
                         <?php else: ?>
                             <span>Id non disponible</span>
                         <?php endif; ?>

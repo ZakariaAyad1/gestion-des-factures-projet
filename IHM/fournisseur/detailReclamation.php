@@ -81,7 +81,7 @@ $clientInfo = $reclamation ? $controller->getClientInfo($reclamation['client_id'
     <div class="response-form">
         <h3>✏ Répondre à la Réclamation</h3>
         <form method="post" action="../../Traitement/fournisseurs/traiter_reponse.php">
-            <input type="hidden" name="reclamation_id" value="<?= $reclamation['reclamation_id'] ?>">
+            <input type="hidden" name="id" value="<?= $reclamation['id'] ?>">
             
             <div class="form-group">
                 <label for="statut">🚦 Mettre à jour le statut :</label>

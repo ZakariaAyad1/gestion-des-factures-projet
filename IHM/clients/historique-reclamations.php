@@ -1,7 +1,7 @@
 <?php
 require '../../BD/ReclamationModel.php';
 try {
-    $db = DbConnection::getInstance(); 
+    $db = DBConnection::getInstance(); 
 } catch (Exception $e) {
     die("Erreur : " . $e->getMessage());
 }

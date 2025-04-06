@@ -34,12 +34,12 @@ class ReclamationResponseProcessor {
     }
     
     private function validateReclamationId() {
-        if (empty($_POST['reclamation_id'])) {
+        if (empty($_POST['id'])) {
             $_SESSION['error'] = "ID de réclamation manquant";
             $this->redirect('traitement-reclamations.php');
         }
         
-        $id = filter_var($_POST['reclamation_id'], FILTER_VALIDATE_INT);
+        $id = filter_var($_POST['id'], FILTER_VALIDATE_INT);
         if ($id === false || $id <= 0) {
             $_SESSION['error'] = "ID de réclamation invalide";
             $this->redirect('traitement-reclamations.php');
