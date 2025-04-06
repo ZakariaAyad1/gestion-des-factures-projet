@@ -1,5 +1,5 @@
 <?php
-require_once(_DIR_ . '/../../Traitement/clients/facture_controller.php');
+require_once'../../Traitement/clients/facture_controller.php';
 
 ?>
 

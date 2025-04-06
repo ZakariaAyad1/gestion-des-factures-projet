@@ -1,5 +1,5 @@
 <?php
-require_once(_DIR_ . '/../../BD/Facture-Model.php');
+require_once'../../BD/Facture-Model.php';
 
 session_start();
 
