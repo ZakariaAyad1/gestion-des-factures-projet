@@ -1,9 +1,9 @@
 <?php
-require_once 'DBConnection.php';
+require_once 'DbConnection.php';
 
 class ReclamationModel {
     private $db;
-    private $uploadDir = _DIR_ . '/../../assets/uploads/reclamations/';
+    private $uploadDir = '../../assets/uploads/reclamations/';
 
     public function __construct() {
         $this->db = DbConnection::getInstance();

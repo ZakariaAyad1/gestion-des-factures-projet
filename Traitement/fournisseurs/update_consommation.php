@@ -14,8 +14,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST["consommation_id"])) {
 
     // Vérifier si une nouvelle photo a été téléchargée
     if (!empty($_FILES["photo_compteur"]["name"])) {
-        $uploadDir = "../../assets/uploads/Photo_compteur/";
-        $fileName = time() . "_" . basename($_FILES["photo_compteur"]["name"]);
+        $uploadDir = "../../Traitement/";
+        $fileName = "Assets/Uploads/Compteurs/" . time() . "_" . basename($_FILES["photo_compteur"]["name"]);
         $filePath = $uploadDir . $fileName;
 
         // Déplacer le fichier uploadé vers le répertoire cible
@@ -31,4 +31,3 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST["consommation_id"])) {
     $success = $model->updateConsommation($consommation_id, $data);
     echo json_encode(['success' => $success]);
 }
-?>

@@ -107,7 +107,7 @@ if ($facture) {
             $pdf->SetTextColor($primaryColor[0], $primaryColor[1], $primaryColor[2]);
             $pdf->Cell(0, 10, utf8_decode('RELEVE DE COMPTEUR'), 0, 1, 'C');
             
-            $imagePath = '../../assets/uploads/Photo_compteur/' . $facture['photo_compteur'];
+            $imagePath = '../../Traitement/' . $facture['photo_compteur'];
             if (file_exists($imagePath)) {
                 $imgWidth = 50;
                 $imgHeight = 0;

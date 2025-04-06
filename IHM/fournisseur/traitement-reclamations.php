@@ -14,11 +14,13 @@ $reclamations = $controller->afficherReclamations($statutFilter, $typeFilter);
 
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <title>Tableau des Réclamations</title>
     <link rel="stylesheet" href="../../assets/css/style_reclamation.css">
 </head>
+
 <body>
     <h2>📋 Liste des Réclamations</h2>
 
@@ -55,13 +57,20 @@ $reclamations = $controller->afficherReclamations($statutFilter, $typeFilter);
         </thead>
         <tbody>
             <?php foreach ($reclamations as $reclamation): ?>
-                <tr data-type="<?= htmlspecialchars($reclamation['type']) ?>" 
+                <tr data-type="<?= htmlspecialchars($reclamation['type']) ?>"
                     data-statut="<?= htmlspecialchars($reclamation['statut'] === 'Resolu' ? 'Résolue' : $reclamation['statut']) ?>">
                     <td><?= htmlspecialchars($reclamation['nom'] . ' ' . $reclamation['prenom']) ?></td>
                     <td><?= htmlspecialchars(date('d/m/Y', strtotime($reclamation['created_at']))) ?></td>
                     <td><?= htmlspecialchars($reclamation['type']) ?></td>
                     <td><?= htmlspecialchars($reclamation['statut'] === 'Resolu' ? 'Résolue' : $reclamation['statut']) ?></td>
-                    <td><a href="detailReclamation.php?id=<?= $reclamation['reclamation_id'] ?>">🔍 Voir / Traiter</a></td>
+                    <td>
+                        <?php if (isset($reclamation['reclamation_id'])): ?>
+                            <a href="detailReclamation.php?id=<?= $reclamation['reclamation_id'] ?>">🔍 Voir / Traiter</a>
+                        <?php else: ?>
+                            <span>Id non disponible</span>
+                        <?php endif; ?>
+                    </td>
+
                 </tr>
             <?php endforeach; ?>
         </tbody>
@@ -85,8 +94,8 @@ $reclamations = $controller->afficherReclamations($statutFilter, $typeFilter);
                 const type = row.getAttribute("data-type");
                 const statut = row.getAttribute("data-statut");
 
-                const statutMatch = statutFilter === "all" || 
-                                  (statutFilter === "Resolu" ? statut === "Résolue" : statut === statutFilter);
+                const statutMatch = statutFilter === "all" ||
+                    (statutFilter === "Resolu" ? statut === "Résolue" : statut === statutFilter);
                 const typeMatch = typeFilter === "all" || type === typeFilter;
 
                 row.style.display = statutMatch && typeMatch ? "" : "none";
@@ -94,5 +103,6 @@ $reclamations = $controller->afficherReclamations($statutFilter, $typeFilter);
         }
     </script>
 </body>
+
 </html>
 <?php include '../includes/footer-fournisseur.php'; ?>

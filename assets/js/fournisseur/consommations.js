@@ -14,8 +14,8 @@ document.addEventListener("DOMContentLoaded", function () {
                     <td>${consommation.annee}</td>
                     <td>${consommation.consommation} kWh</td>
                     <td>
-    <a href="../../assets/uploads/Photo_compteur/${consommation.photo_compteur}" target="_blank">
-        <img src="../../assets/uploads/${consommation.photo_compteur}" alt="Photo compteur" width="50" style="cursor: pointer;">
+    <a href="../../Traitement/${consommation.photo_compteur}" target="_blank">
+        <img src="../../Traitement/${consommation.photo_compteur}" alt="Photo compteur" width="50" style="cursor: pointer;">
     </a>
 </td>
 

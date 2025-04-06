@@ -1,11 +1,13 @@
 <?php
+
 /**
  * Classe de connexion à la base de données
  *
  * Cette classe utilise le pattern Singleton pour assurer une seule instance
  * de connexion à la base de données pendant toute l'exécution du script.
  */
-class DBConnection {
+class DBConnection
+{
     // Instance unique de la classe
     private static $instance = null;
 
@@ -14,7 +16,7 @@ class DBConnection {
 
     // Paramètres de connexion à la base de données
     private $host = 'localhost';
-    private $dbname = 'assia';
+    private $dbname = 'gestion_factures';
     private $username = 'root';
     private $password = ''; // Modifiez cette valeur selon votre configuration
     private $charset = 'utf8mb4';
@@ -23,7 +25,8 @@ class DBConnection {
     /**
      * Constructeur privé pour empêcher l'instanciation directe
      */
-    private function __construct() {
+    private function __construct()
+    {
         try {
             // Ajouter le port dans le DSN
             $dsn = "mysql:host={$this->host};dbname={$this->dbname};charset={$this->charset};port={$this->port}";
@@ -46,7 +49,8 @@ class DBConnection {
      *
      * @return DBConnection Instance unique de la classe
      */
-    public static function getInstance() {
+    public static function getInstance()
+    {
         if (self::$instance === null) {
             self::$instance = new self();
         }
@@ -58,7 +62,8 @@ class DBConnection {
      *
      * @return PDO Objet PDO de connexion
      */
-    public function getConnection() {
+    public function getConnection()
+    {
         return $this->conn;
     }
 
@@ -69,7 +74,8 @@ class DBConnection {
      * @param array $params Paramètres pour la requête préparée
      * @return PDOStatement Résultat de l'exécution
      */
-    public function query($sql, $params = []) {
+    public function query($sql, $params = [])
+    {
         try {
             $stmt = $this->conn->prepare($sql);
             $stmt->execute($params);
@@ -87,7 +93,8 @@ class DBConnection {
      * @param array $params Paramètres pour la requête préparée
      * @return array Tableau des résultats
      */
-    public function fetchAll($sql, $params = []) {
+    public function fetchAll($sql, $params = [])
+    {
         return $this->query($sql, $params)->fetchAll();
     }
 
@@ -98,7 +105,8 @@ class DBConnection {
      * @param array $params Paramètres pour la requête préparée
      * @return array|false Une ligne de résultat ou false si aucun résultat
      */
-    public function fetchOne($sql, $params = []) {
+    public function fetchOne($sql, $params = [])
+    {
         $result = $this->query($sql, $params)->fetch();
         return $result !== false ? $result : false;
     }
@@ -110,7 +118,8 @@ class DBConnection {
      * @param array $params Paramètres pour la requête préparée
      * @return int|false ID de la dernière insertion ou false en cas d'échec
      */
-    public function insert($sql, $params = []) {
+    public function insert($sql, $params = [])
+    {
         $this->query($sql, $params);
         return $this->conn->lastInsertId();
     }
@@ -122,7 +131,8 @@ class DBConnection {
      * @param array $params Paramètres pour la requête préparée
      * @return int Nombre de lignes affectées
      */
-    public function update($sql, $params = []) {
+    public function update($sql, $params = [])
+    {
         return $this->query($sql, $params)->rowCount();
     }
 
@@ -133,7 +143,8 @@ class DBConnection {
      * @param array $params Paramètres pour la requête préparée
      * @return int Nombre de lignes affectées
      */
-    public function delete($sql, $params = []) {
+    public function delete($sql, $params = [])
+    {
         return $this->query($sql, $params)->rowCount();
     }
 
@@ -148,4 +159,3 @@ class DBConnection {
      */
     public function __wakeup() {}
 }
-?>
