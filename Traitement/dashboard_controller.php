@@ -5,7 +5,7 @@ class DashboardController {
     private $db;
 
     public function __construct() {
-        $database = new Database();
+        $database = new DBConnection();
         $this->db = $database->getConnection();
     }
 

@@ -18,9 +18,9 @@ class DBConnection
     private $host = 'localhost';
     private $dbname = 'gestion_factures';
     private $username = 'root';
-    private $password = ''; // Modifiez cette valeur selon votre configuration
+    private $password = 'chaymae2002'; // Modifiez cette valeur selon votre configuration
     private $charset = 'utf8mb4';
-    private $port = 3306; // Définir le port
+    private $port = 3308; // Définir le port
 
     /**
      * Constructeur privé pour empêcher l'instanciation directe
