@@ -1,4 +1,4 @@
 <?php
-header('Location: IHM/clients/login.php');
+header('Location: IHM/fournisseur/dashboard-fournisseur.php');
 exit();
 ?>
