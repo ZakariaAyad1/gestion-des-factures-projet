@@ -43,6 +43,7 @@ $clients = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <link rel="stylesheet" href="../../Assets/Css/test.css">
 </head>
 <body>
+<?php include '..\includes\header-fournisseur.php'; ?>
 
 <div class="container">
     <!-- Titre avec cadre bleu foncé -->
@@ -88,7 +89,8 @@ echo "<td><button class='deleteBtn' data-id='" . $client['client_id'] . "'>❌su
  
     
  
- 
+<?php include '..\includes\footer-fournisseur.php'; ?>
+
 <script src="../../Assets/Js/js.js"></script>
 </body>
 </html>
