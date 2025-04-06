@@ -16,7 +16,7 @@ class DBConnection
 
     // Paramètres de connexion à la base de données
     private $host = 'localhost';
-    private $dbname = 'gestion_factures';
+    private $dbname = 'tp2_web2';
     private $username = 'root';
     private $password = ''; // Modifiez cette valeur selon votre configuration
     private $charset = 'utf8mb4';
