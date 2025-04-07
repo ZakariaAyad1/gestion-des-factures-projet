@@ -107,4 +107,10 @@ class ConsommationController {
         if (!isset($_SESSION)) session_start();
         return $_SESSION['client_id'] ?? 0;
     }
+    
+    public function saisieAutoriseeCeJour() {
+        $aujourdhui = date('j'); // jour sans le 0 devant
+        return $aujourdhui == 18;
+    }
+    
 }

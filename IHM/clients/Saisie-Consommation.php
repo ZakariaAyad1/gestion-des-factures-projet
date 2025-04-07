@@ -12,6 +12,8 @@ $consommationController = new ConsommationController();
 // Pour la démonstration, on utilise un ID fixe
 $client_id = isset($_SESSION['client_id']) ? $_SESSION['client_id'] : 1;
 
+$autorise = $consommationController->saisieAutoriseeCeJour();
+
 // Génération d'un token CSRF
 // Utiliser directement la méthode de la classe ou créer un token manuellement
 if (!isset($_SESSION['csrf_token'])) {
@@ -104,36 +106,42 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <?php echo $message; ?>
         </div>
 
-        <form id="consommationForm" method="POST" enctype="multipart/form-data">
-            <input type="hidden" name="csrf_token" value="<?php echo $csrf_token; ?>">
-
-            <div class="form-group">
-                <label for="consommation"><strong>Consommation (kWh)</strong></label>
-                <input type="number" id="consommation" name="consommation" step="0.01" min="0" required>
-                <small>Veuillez saisir votre consommation en kilowattheures.</small>
+        <?php if (!$autorise): ?>
+            <div class="message warning">
+                La saisie de votre consommation est disponible uniquement le <strong>18</strong> de chaque mois.
             </div>
+        <?php else: ?>
+            <form id="consommationForm" method="POST" enctype="multipart/form-data">
+                <input type="hidden" name="csrf_token" value="<?php echo $csrf_token; ?>">
 
-            <div class="form-group">
-                <label><strong>Consommation précédente</strong></label>
-                <div>
-                    <span id="previous-consommation"><?php echo $consommationPrecedente; ?> kWh</span>
-                    <span id="previous-date">Date: <?php echo $datePrecedente; ?></span>
+                <div class="form-group">
+                    <label for="consommation"><strong>Consommation (kWh)</strong></label>
+                    <input type="number" id="consommation" name="consommation" step="0.01" min="0" required>
+                    <small>Veuillez saisir votre consommation en kilowattheures.</small>
                 </div>
-            </div>
 
-            <div class="form-group">
-                <label for="photo_compteur"><strong>Photo du compteur</strong></label>
-                <input type="file" id="photo_compteur" name="photo_compteur" accept="image/*" required>
-                <small>Prenez une photo claire de votre compteur montrant les chiffres.</small>
-                <div id="preview" style="display: none;">
-                    <img id="imagePreview" src="#" alt="Aperçu de l'image">
+                <div class="form-group">
+                    <label><strong>Consommation précédente</strong></label>
+                    <div>
+                        <span id="previous-consommation"><?php echo $consommationPrecedente; ?> kWh</span>
+                        <span id="previous-date">Date: <?php echo $datePrecedente; ?></span>
+                    </div>
                 </div>
-            </div>
 
-            <div class="form-group">
-                <button type="submit">Envoyer</button>
-            </div>
-        </form>
+                <div class="form-group">
+                    <label for="photo_compteur"><strong>Photo du compteur</strong></label>
+                    <input type="file" id="photo_compteur" name="photo_compteur" accept="image/*" required>
+                    <small>Prenez une photo claire de votre compteur montrant les chiffres.</small>
+                    <div id="preview" style="display: none;">
+                        <img id="imagePreview" src="#" alt="Aperçu de l'image">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <button type="submit">Envoyer</button>
+                </div>
+            </form>
+        <?php endif; ?>
     </div>
 
     <script>
