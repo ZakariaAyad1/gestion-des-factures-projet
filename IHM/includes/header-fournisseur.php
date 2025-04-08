@@ -83,12 +83,10 @@
                     </li>
                     <li class="nav-item me-lg-2 mb-2 mb-lg-0 position-relative">
                         <a class="nav-link rounded-pill px-3 d-flex align-items-center" 
-                           href="Notifications-Fournisseur.php">
+                           href="verification_consommation.php">
                             <i class="material-icons-round me-2">notifications</i>
-                            <span>Notifications</span>
-                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                                3+
-                            </span>
+                            <span>Vérification des Consommations</span>
+                            
                         </a>
                     </li>
                 </div>
