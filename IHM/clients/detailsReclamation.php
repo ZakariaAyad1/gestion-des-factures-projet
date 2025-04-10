@@ -70,7 +70,6 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
     </style>
 </head>
 <body>
-
 <div class="sidebar">
     <div class="logo">
         <svg width="100" height="40" viewBox="0 0 100 40">
@@ -117,6 +116,12 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
         <?php else: ?>
             <p><strong>Aucune pièce jointe</strong></p>
         <?php endif; ?>
+
+        <?php if (!empty($reclamation['reponse'])): ?>
+    <p><strong>Réponse :</strong><br><?= nl2br(htmlspecialchars($reclamation['reponse'])) ?></p>
+<?php else: ?>
+    <p><strong>Aucune réponse pour le moment.</strong></p>
+<?php endif; ?>
     </div>
     
     <a href="Historique-Reclamations.php" class="back-btn">Retour à l'historique des réclamations</a>
